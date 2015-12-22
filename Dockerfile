@@ -1,4 +1,4 @@
-# PostGIS 2.1.2
+# PHP
 # Ubuntu 14.04
 
 # CREDITS: Based on http://www.peterstratton.com/2014/04/how-to-install-postgis-2-dot-1-and-postgresql-9-dot-3-on-ubuntu-servers/
@@ -10,12 +10,15 @@ MAINTAINER Jonathan Mayer jonathan.mayer@ecountability.co.uk
 # Update the Ubuntu repository indexes -----------------------------------------------------------------#
 RUN apt-get update && apt-get upgrade -y
 
-# Install dependencies ------------------------------------------------------------------------------------------------#
-RUN apt-get install -y build-essential python-all-dev git vim python-dev python-pip\
-    python-software-properties software-properties-common g++ gcc make libssl-dev libreadline6-dev\
-    libaio-dev libbz2-dev zlib1g-dev libjpeg62-dev libpcre3-dev libexpat1-dev libxml2 libxml2-dev\
-    libjson0 libjson0-dev liblzma-dev libevent-dev wget zip unzip supervisor sudo\
-    binutils libproj-dev libgeoip1 libgtk2.0 xsltproc docbook-xsl docbook-mathml
+# Install dependencies Step 1  ------------------------------------------------------------------------------------------------#
+RUN apt-get install build-essential
+   
+# Install dependencies Step 2  ------------------------------------------------------------------------------------------------#
+RUN apt-get install openssl libssl-dev openssl-blacklist openssl-blacklist-extra  bison autoconf automake libtool re2c flex apache-prefork-dev
+   
+# Install dependencies Step 3  ------------------------------------------------------------------------------------------------#
+RUN apt-get install libxml2-dev libssl-dev libbz2-dev libcurl3-dev libdb5.1-dev libjpeg-dev libpng-dev libXpm-dev libfreetype6-dev libt1-dev libgmp3-dev libc-client-dev libldap2-dev libmcrypt-dev libmhash-dev freetds-dev libz-dev libmysqlclient15-dev ncurses-dev libpcre3-dev unixODBC-dev postgresql-server-dev-9.1 libsqlite-dev libaspell-dev libreadline6-dev librecode-dev libsnmp-dev libtidy-dev libxslt-dev libt1-dev
+
 
 # Install PostgreSQL libraries ----------------------------------------------------------------------------------------#
 RUN apt-get install -y postgresql-9.3 postgresql-client-9.3 postgresql-contrib-9.3 libpq-dev postgresql-server-dev-9.3
