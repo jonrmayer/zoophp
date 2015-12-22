@@ -1,16 +1,13 @@
 # PostGIS 2.1.2
 # Ubuntu 14.04
-# PostgreSQL 9.3
-# PostGIS 2.1
-# GDAL 1.11.1
-# GEOS 3.4.2
+
 # CREDITS: Based on http://www.peterstratton.com/2014/04/how-to-install-postgis-2-dot-1-and-postgresql-9-dot-3-on-ubuntu-servers/
 
 FROM ubuntu:14.04
 
-MAINTAINER Nathan Swain nathan.swain@byu.net
+MAINTAINER Jonathan Mayer jonathan.mayer@ecountability.co.uk
 
-# Update the Ubuntu and PostgreSQL repository indexes -----------------------------------------------------------------#
+# Update the Ubuntu repository indexes -----------------------------------------------------------------#
 RUN apt-get update && apt-get upgrade -y
 
 # Install dependencies ------------------------------------------------------------------------------------------------#
